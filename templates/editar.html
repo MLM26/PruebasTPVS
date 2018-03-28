@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Floating labels example for Bootstrap</title>
+    <title>TPVS</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +28,12 @@
 
   <body class="container">
     <div class = "row">
-      <form class="col-sm-6" method="post" >
+      <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <input type="submit" class="form-control"value="Cargar Archivo" >
+      </form>
+      <form class="col-sm-6" method="post" >
         <div class="form-label-group">
           <label for="inputNumber">Id</label>
           <input type="number" id="inputId"class="form-control" placeholder="Id" >

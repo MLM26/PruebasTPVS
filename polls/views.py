@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
-#from .forms import Info
+#from .forms import UploadFileForm
+from .forms import CargarArchivo
 # Create your views here.
 
 
@@ -25,10 +26,27 @@ def login_view(request):
 
 @login_required(login_url="login")
 def editar(request):
-#    form = Info()
-    return render(request,"editar.html")
+    form = CargarArchivo(request.POST, request.FILES)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(request,"Succesfully Created")
+        return HttpResponseRedirect(instance.get_absolute_url())
+    else:
+        form = CargarArchivo()
+    context = {
+        "form":form,
+    }
+    return render(request,"editar.html",context)
 
 def logout_view(request):
     if request.method=='POST':
         logout(request)
         return redirect('login_view')
+"""
+def upload_file(request):
+    if request.method=='POST':
+        form = uploadFileForm(request.POST,request.FILES)
+        if form.is_valid():
+        return redirect('login_view')
+"""
