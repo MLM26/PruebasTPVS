@@ -1,5 +1,6 @@
 from django import forms
+from .import models
 
-class Info(forms.Form):
+class Trader(forms.ModelForm):
     nombre: forms.CharField(widget=forms.TextInput(),required=True)
     descripcion: forms.CharField(widget=forms.TextInput(),required=True)
