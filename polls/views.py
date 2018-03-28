@@ -26,18 +26,16 @@ def login_view(request):
 
 @login_required(login_url="login")
 def editar(request):
-    form = CargarArchivo(request.POST, request.FILES)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.save()
-        messages.success(request,"Succesfully Created")
-        return HttpResponseRedirect(instance.get_absolute_url())
+    if request.method =='POST':
+        form = CargarArchivo(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            messages.success(request,"Succesfully Created")
+            return redirect('editar')
     else:
-        form = CargarArchivo()
-    context = {
-        "form":form,
-    }
-    return render(request,"editar.html",context)
+        form = CargarArchivo(request.POST, request.FILES)
+    return render(request,"editar.html",{'form':form})
 
 def logout_view(request):
     if request.method=='POST':

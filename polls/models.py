@@ -10,7 +10,7 @@ class Trader(models.Model):
     def __str__(self):
         return self.nombre
 """
-class CargarArchivo(models.Model):
+class Archivo(models.Model):
     nombre = models.CharField(max_length = 50)
     file = models.FileField()
 
@@ -18,4 +18,4 @@ class CargarArchivo(models.Model):
         return self.nombre
 
     def get_absolute_url(self):
-        return reverse("editar")
+        return reverse('editar',kwargs={'pk':self.pk})
