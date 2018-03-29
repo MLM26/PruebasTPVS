@@ -8,10 +8,13 @@ from .import views
 
 
 urlpatterns = [
-    url(r'^$',views.login_view,name="login_view"),
-    url(r'^editar/',views.editar,name="editar"),
-    url(r'^login/$',views.login_view,name="login"),
+    url(r'^login',views.login_view,name="login_view"),
+    url(r'^index',views.index,name="index"),
+    url(r'^archivo/',views.archivo,name="archivo"),
     url(r'^logout/$',views.logout_view,name="logout"),
+    url(r'^traders/$',views.traders,name="traders"),
+    url(r'^sistemas/$',views.sistemas,name="sistemas"),
+    url(r'^portafolios/$',views.portafolios,name="portafolios"),
 #    url(r'^logout$',views.login_view,name="login_view")
 ]
 
