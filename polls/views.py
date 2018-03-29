@@ -31,7 +31,6 @@ def archivo(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.save()
-            messages.success(request,"Succesfully Created")
             return redirect('archivo')
     else:
         form = CargarArchivo()

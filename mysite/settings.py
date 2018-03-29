@@ -74,20 +74,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'MySQL':{
-        'ENGINE': 'mysql_cymysql',
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'prueba',
         'USER' :'root',
         'PASSWORD':'root123',
         'HOST': 'localhost',
         'PORT':'3306',
-    }
+    },
+    'MySQL': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'prueba',
+         'USER' :'root',
+         'PASSWORD':'root123',
+         'HOST': 'localhost',
+         'PORT':'3306',
+     }
 }
 DATABASE_ROUTERS = ['mysite.routers.MySiteRouter',]
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
