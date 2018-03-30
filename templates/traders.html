@@ -27,49 +27,29 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha</th>
+              <th>Documento</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha</th>
+              <th>Documento</th>
             </tr>
           </tfoot>
           <tbody>
+            {% for t in traders %}
             <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
+              <th>{{ t.nombre }} </th>
+              <th>{{ t.apellido }} </th>
+              <th>{{ t.fecha }} </th>
+              <th>{{ t.documento }} </th>
             </tr>
-            <tr>
-              <td>Airi Satou</td>
-              <td>Accountant</td>
-              <td>Tokyo</td>
-              <td>33</td>
-              <td>2008/11/28</td>
-              <td>$162,700</td>
-            </tr>
-            <tr>
-              <td>Brielle Williamson</td>
-              <td>Integration Specialist</td>
-              <td>New York</td>
-              <td>61</td>
-              <td>2012/12/02</td>
-              <td>$372,000</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>
@@ -106,22 +86,6 @@
               <td>61</td>
               <td>2011/04/25</td>
               <td>$320,800</td>
-            </tr>
-            <tr>
-              <td>Airi Satou</td>
-              <td>Accountant</td>
-              <td>Tokyo</td>
-              <td>33</td>
-              <td>2008/11/28</td>
-              <td>$162,700</td>
-            </tr>
-            <tr>
-              <td>Brielle Williamson</td>
-              <td>Integration Specialist</td>
-              <td>New York</td>
-              <td>61</td>
-              <td>2012/12/02</td>
-              <td>$372,000</td>
             </tr>
           </tbody>
         </table>

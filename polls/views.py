@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
-#from .forms import UploadFileForm
+from .models import Trader
 from .forms import CargarArchivo
+from django.utils import timezone
 # Create your views here.
 
 
@@ -38,7 +39,10 @@ def archivo(request):
 
 @login_required(login_url="login")
 def traders(request):
-    return render(request,"traders.html")
+    traders = Trader.objects.filter(fecha__lte=timezone.now()).order_by('fecha')
+    return render(request, 'traders.html', {'traders':traders})
+
+
 
 @login_required(login_url="login")
 def sistemas(request):
