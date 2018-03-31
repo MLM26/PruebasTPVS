@@ -33,7 +33,7 @@ Crear un usuario para su correcto ingreso a la plataforma, dentro de la carpeta 
 >>python manage.py createsuperuser
 ```
 Cambiar los datos de la base de datos a los propios:
-1. En el Archivo settings.py en mysite, Camiar el apartado DATABASE
+1. En el Archivo `settings.py` en `mysite`, cambiar el apartado DATABASE
 
 Migrar el modelo a la base de datos, dentro de la carpeta src del proyecto:
 ```
