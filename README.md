@@ -27,7 +27,9 @@ Cambiar los datos de la base de datos a los propios:
 
 Migrar el modelo a la base de datos, dentro de la carpeta src del proyecto:
 >>python manage.py makemigrations
+
 >>python manage.py showmigrations
+
 >>python manage.py migrate
 
 Por último se debe ingresar a:
