@@ -37,6 +37,21 @@ def archivo(request):
         form = CargarArchivo()
     return render(request,"archivo.html",{'form':form})
 
+
+@login_required(login_url="login")
+def portafolios(request):
+    return render(request,"portafolios.html")
+
+def logout_view(request):
+    if request.method=='POST':
+        logout(request)
+        return redirect('login_view')
+
+
+@login_required(login_url="login")
+def producto(request):
+    return render(request,"producto.html")
+
 @login_required(login_url="login")
 def traders(request):
     traders = Trader.objects.filter(fecha__lte=timezone.now()).order_by('fecha')
@@ -48,11 +63,4 @@ def traders(request):
 def sistemas(request):
     return render(request,"sistemas.html")
 
-@login_required(login_url="login")
-def portafolios(request):
-    return render(request,"portafolios.html")
 
-def logout_view(request):
-    if request.method=='POST':
-        logout(request)
-        return redirect('login_view')

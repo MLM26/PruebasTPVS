@@ -1,97 +1,101 @@
 {% extends 'base.html' %}
 
 {% block content%}
-  <body class="container">
+     <div class="row">
+          <div class="col-md-6 col-md-offset-3 topspace" >
+              <div class=" panel panel-default panel-yellow">
+                 <div class="panel-heading col-md-12" align="center" style="margin-bottom: 5%;" >
+                   <h3>Información trader</h3>
+                </div>
+                <div class="panel-body">
+                 <form method="post" >
+                    <div class="form-label-group">
+                      <label for="inputText">Id</label>
+                      <input type="text" id="inputId" class="form-control" placeholder="Id" >
+                    </div>
+                    <div class="form-label-group">
+                      <label for="inputText">Nombre</label>
+                      <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" required >
+                    </div>
+                    <div class="form-label-group">
+                      <label for="inputText">Apellido</label>
+                      <input type="text" id="inputApellido" class="form-control" placeholder="Apellido" required >
+                    </div>
+                    <div class="topspace" align="center" >
+                      <button class="btn btn-primary btn-lg btn-warning" type="submit">Guardar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          </div>
+      </div>
+
     <div class = "row">
-      <form class="col-sm-6" method="post" >
-        <div class="form-label-group">
-          <label for="inputNumber">Id</label>
-          <input type="number" id="inputId"class="form-control" placeholder="Id" >
-        </div>
-        <div class="form-label-group">
-          <label for="inputText">Nombre</label>
-          <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" required autofocus>
-        </div>
-        <div class="form-label-group">
-          <label for="inputPassword">Descripcion</label>
-          <input type="text" id="inputDescripcion" class="form-control" placeholder="Descripion" required>
-        </div>
-        <div class="col-md-8 order-md-3">
-          <button class="btn btn-primary btn-lg" type="submit">Cargar</button>
-          <button class="btn btn-primary btn-lg" type="submit">Guardar</button>
-        </div>
-      </form>
+      <h2 class="page-header"> Elementos no identificados </h2>
     </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  
+      <div class="table-responsive ">
+        <table class="table table-bordered " id="dataTable"  cellspacing="0">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
               <th>Fecha</th>
-              <th>Documento</th>
+              <th>Usuario</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
               <th>Fecha</th>
-              <th>Documento</th>
+              <th>Usuario</th>
             </tr>
           </tfoot>
           <tbody>
             {% for t in traders %}
             <tr>
-              <th>{{ t.nombre }} </th>
-              <th>{{ t.apellido }} </th>
               <th>{{ t.fecha }} </th>
-              <th>{{ t.documento }} </th>
+              <th>{{ t.Username }} </th>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-      <div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Completar</button>
+      <div class="col-md-12">
+        <button class="btn btn-info col-md-4 col-md-offset-4" type="submit">Completar</button>
       </div>
+    <div class = "row ">
+      <h2 class="page-header"> Elementos existentes en el Datamart </h2>
+    </div>
+
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+            
             </tr>
           </tfoot>
           <tbody>
+            {% for t in traders %}
             <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
+              <th>{{ t.usuario }} </th>
+              <th>{{ t.nombre }} </th>
+              <th>{{ t.apellido }} </th>
             </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Editar</button>
-  </body>
+      <div class="col-md-12">
+        <button class="btn btn-info col-md-4 col-md-offset-4" type="submit">Editar</button>
+      </div>
 
 {%endblock%}

@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^traders/$',views.traders,name="traders"),
     url(r'^sistemas/$',views.sistemas,name="sistemas"),
     url(r'^portafolios/$',views.portafolios,name="portafolios"),
+    url(r'^producto/$',views.producto,name="productos"),
 #    url(r'^logout$',views.login_view,name="login_view")
 ]
 
