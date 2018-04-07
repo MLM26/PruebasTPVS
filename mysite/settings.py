@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'polls',
 ]
 
@@ -139,3 +140,7 @@ STATICFILES_DIRS = (
 LOGIN_REDIRECT_URL = 'editar'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+# Global setting Django-import-export
+#https://django-import-export.readthedocs.io/en/latest/installation.html
+IMPORT_EXPORT_USE_TRANSACTIONS = True

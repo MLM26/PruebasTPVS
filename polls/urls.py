@@ -8,15 +8,24 @@ from .import views
 
 
 urlpatterns = [
-    url(r'^login',views.login_view,name="login_view"),
+    #index
     url(r'^index',views.index,name="index"),
-    url(r'^archivo/',views.archivo,name="archivo"),
+    
+    #log
+    url(r'^login',views.login_view,name="login_view"),
     url(r'^logout/$',views.logout_view,name="logout"),
-    url(r'^traders/$',views.traders,name="traders"),
-    url(r'^sistemas/$',views.sistemas,name="sistemas"),
-    url(r'^portafolios/$',views.portafolios,name="portafolios"),
-    url(r'^producto/$',views.producto,name="productos"),
-#    url(r'^logout$',views.login_view,name="login_view")
+
+    #menu
+    url(r'^archivo/',views.archivo,name="archivo"),
+    url(r'^contraparte/$',views.contraparte,name="contraparte"),
+    url(r'^estado/$',views.estado,name="estado"),
+    url(r'^portafolio/$',views.portafolio,name="portafolio"),
+    url(r'^producto/$',views.producto,name="producto"),
+    url(r'^trader/$',views.trader,name="trader"),
+    url(r'^sistema/$',views.sistema,name="sistema"),
+
+   
+
 ]
 
 """

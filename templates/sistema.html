@@ -5,21 +5,21 @@
           <div class="col-md-6 col-md-offset-3 topspace" >
               <div class=" panel panel-default panel-yellow">
                  <div class="panel-heading col-md-12" align="center" style="margin-bottom: 5%;" >
-                   <h3>Información producto</h3>
+                   <h3>Información sistema</h3>
                 </div>
                 <div class="panel-body">
                  <form method="post" >
                     <div class="form-label-group">
                       <label for="inputText">Id</label>
-                      <input type="text" id="inputIdProducto" class="form-control" placeholder="Id" >
+                      <input type="text" id="inputIdSistema" class="form-control" placeholder="Id" >
                     </div>
                     <div class="form-label-group">
                       <label for="inputText">Nombre</label>
-                      <input type="text" id="inputNombreProducto" class="form-control" placeholder="Nombre" required >
+                      <input type="text" id="inputNombreSistema" class="form-control" placeholder="Nombre" required >
                     </div>
                     <div class="form-label-group">
-                      <label for="inputText">Tipo operación</label>
-                      <input type="text" id="inputTipoProducto" class="form-control" placeholder="Tipo operación" required >
+                      <label for="inputText">Descripción</label>
+                      <textarea type="text" id="inputDescripcionSistema" class="form-control" placeholder="Descripción" rows="3" required ></textarea>
                     </div>
                     <div class="space" align="center" >
                       <button class="btn btn-primary btn-lg btn-warning" type="submit">Guardar</button>
@@ -66,7 +66,7 @@
             <tr>
               <th>Identificador</th>
               <th>Nombre</th>
-              <th>Tipo</th>
+              <th>Descripción</th>
               
             </tr>
           </thead>
@@ -74,7 +74,7 @@
             <tr>
               <th>Identificador</th>
               <th>Nombre</th>
-              <th>Tipo</th>
+              <th>Descripción</th>
             </tr>
           </tfoot>
           <tbody>
@@ -85,4 +85,5 @@
       <div class="col-md-12 space">
         <button class="btn btn-warning col-md-4 col-md-offset-4" type="submit">Editar</button>
       </div>
+
 {%endblock%}

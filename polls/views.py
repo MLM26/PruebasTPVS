@@ -10,10 +10,14 @@ from django.utils import timezone
 
 from django.http import HttpResponse
 
+
+#Index
 @login_required(login_url="login")
 def index(request):
     return render(request,"index.html")
 
+
+#Logs
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -25,6 +29,15 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request,'login_view.html',{'form':form})
 
+def logout_view(request):
+    if request.method=='POST':
+        logout(request)
+        return redirect('login_view')
+
+
+
+
+#Menu
 @login_required(login_url="login")
 def archivo(request):
     if request.method =='POST':
@@ -37,15 +50,17 @@ def archivo(request):
         form = CargarArchivo()
     return render(request,"archivo.html",{'form':form})
 
+@login_required(login_url="login")
+def contraparte(request):
+    return render(request,"contraparte.html")
 
 @login_required(login_url="login")
-def portafolios(request):
-    return render(request,"portafolios.html")
+def estado(request):
+    return render(request,"estado.html")
 
-def logout_view(request):
-    if request.method=='POST':
-        logout(request)
-        return redirect('login_view')
+@login_required(login_url="login")
+def portafolio(request):
+    return render(request,"portafolio.html")
 
 
 @login_required(login_url="login")
@@ -53,14 +68,14 @@ def producto(request):
     return render(request,"producto.html")
 
 @login_required(login_url="login")
-def traders(request):
+def trader(request):
     traders = Trader.objects.filter(fecha__lte=timezone.now()).order_by('fecha')
-    return render(request, 'traders.html', {'traders':traders})
+    return render(request, 'trader.html', {'traders':traders})
 
 
 
 @login_required(login_url="login")
-def sistemas(request):
-    return render(request,"sistemas.html")
+def sistema(request):
+    return render(request,"sistema.html")
 
 

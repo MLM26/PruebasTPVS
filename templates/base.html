@@ -1,243 +1,176 @@
 {% load static %}
 
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<head>
+        <title>TPVS</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>TPVS</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/fh-3.1.3/kt-2.3.2/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="{% static 'vendor/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
-
-  
-    <!-- Custom Fonts -->
-    <link href="{% static 'vendor/font-awesome/css/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css">
-    
-  <!-- Custom CSS -->
-    <link href="{% static 'dist/css/sb-admin-2.css' %}" rel="stylesheet">
+        <!-- Our Custom CSS -->
+        <link href="{% static 'css/style4.css' %}" rel="stylesheet">
+    </head>
+    <body>
 
 
-</head>
 
-<body>
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>
+                      <a href="index.html" >
+                        <picture style="margin-left: 30px;">
+                          <img
+                          align="center"
+                          sizes="(max-width: 150px) 100vw, 150px"
+                          srcset="
+                          {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_150.png' %} 150w"
+                          src=" {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_150.png' %}"
+                          alt="">
+                        </picture>
+                      </a>
+                    </h3>
+                    <strong>
+                       <a href="index.html">
+                        <picture>
+                          <img
+                          sizes="(max-width: 50px) 100vw, 50px"
+                          srcset="
+                          {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_50.png' %} 50w"
+                          src=" {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_50.png' %}"
+                          alt="">
+                        </picture>
+                      </a>
+                    </strong>
+                </div>
 
-    <div id="wrapper">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="{%url 'index'%}" >
+                                <i class="glyphicon glyphicon-home"></i>
+                                Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'archivo'%}"><i class="glyphicon glyphicon-open-file"></i>Cargar archivo</a>
+                    </li>
+                    <li class="active">
+                        <a href="#DatosSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            Datos generales
+                        </a>
+                        <ul class="collapse list-unstyled" id="DatosSubmenu">
+                          <li>
+                                <a href="{%url 'contraparte'%}">Contraparte</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'estado'%}">Estado</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'portafolio'%}">Portafolio</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'producto'%}">Producto</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'sistema'%}">Sistema</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'trader'%}">Trader</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#MonedaSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-usd"></i>
+                            Moneda
+                        </a>
+                        <ul class="collapse list-unstyled" id="MonedaSubmenu">
+                          <li>
+                                <a href="morris.html">Información</a>
+                            </li>
+                            <li>
+                                <a href="morris.html">Pares</a>
+                            </li>
+                
+                        </ul>
+                    </li>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;" >
-            <div class="navbar-header" align="center">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                    
-                <a class="navbar-brand" href="index.html">
-                    <picture>
-                      <img
-                      sizes="(max-width: 50px) 100vw, 50px"
-                      srcset="
-                      {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_50.png' %} 50w"
-                      src=" {% static 'visual/tpvs_logo/tpvs2_wjzrvs_c_scale,w_50.png' %}"
-                      alt="">
-                    </picture>
-                </a>
-                 
-            </div>
 
-             <ul class="nav navbar-top-links navbar-right">
- 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a data-toggle="modal" data-target="#exampleModal"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
+                    <li>
+                        <a href="index.html"><i class="glyphicon glyphicon-user"></i>Perfíl</a>
+                    </li>
+                    <li>
+                       <a data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-log-out"></i>Cerrar sesión</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content" class="col-md-12">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                <span>Menú</span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a >En sesión:</a></li>
+                                <li><a href="#" align="left"><b>Oscar</b></a></li>
+                                <li style="margin-left: 10px;">
+                                  <button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#exampleModal">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                    <span>Cerrar sesión</span>
+                                  </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+              <div class="row">
+                        <div class="col-lg-12">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                <!-- Breadcrumbs
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-item active">My Dashboard</li>
+                </ol>
+                /.container-fluid-->
+              <!-- /.content-wrapper-->
+             
+              </div>
+                
+                
+                
 
                
-            </ul>
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-header -->
-
-          
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="{%url 'index'%}"><i class="fa fa-home fa-fw"></i>Inicio</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-list fa-fw"></i>Datos generales<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="morris.html">Contraparte</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Estado</a>
-                                </li>
-                                <li>
-                                    <a href="{%url 'portafolios'%}">Portafolio</a>
-                                </li>
-                                <li>
-                                    <a href="{%url 'productos'%}">Producto</a>
-                                </li>
-                                <li>
-                                    <a href="{%url 'sistemas'%}">Sistema</a>
-                                </li>
-                                <li>
-                                    <a href="{%url 'traders'%}">Trader</a>
-                                </li>
-                               
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                          <li>
-                            <a href="#"><i class="far fa-money-bill-alt fa-fw"></i>Moneda<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="morris.html">Información</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Par moneda</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                         <li>
-                            <a href="index.html"><i class="fas fa-user"></i>Perfíl</a>
-                        </li>
-                        <li>
-                           <a data-toggle="modal" data-target="#exampleModal"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <!-- /.sidebar-collapse -->
             </div>
+        </div>
 
-            <!-- /.navbar-static-side -->
-        </nav>
 
-    <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-        <!-- Breadcrumbs
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">My Dashboard</li>
-        </ol>
-        /.container-fluid-->
-      <!-- /.content-wrapper-->
-     
-      </div>
-
-    </div>
-          
-          <!-- Scroll to Top Button-->
-          <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fa fa-angle-up"></i>
-          </a>
-          <!-- Logout Modal-->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -253,24 +186,23 @@
                 </div>
               </div>
             </div>
-      </div>  
+        </div>  
 
 
-    <!-- jQuery -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="{% static 'vendor/metisMenu/metisMenu.min.js' %}"></script>
+         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
+         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/fh-3.1.3/kt-2.3.2/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
 
+         <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
 
-</body>
-
+    </body>
 </html>
+
 
   
