@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<div class="col-xl-6 col-sm-6 mb-6">
-  <div class = "card-body">
-    <form method="post" action="" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" class="form-control"value="Cargar Archivo" >
-    </form>
+<div class="row">
+     <div class="col-md-6 col-md-offset-3 topspace" >
+         <div class=" panel panel-default panel-yellow">
+      <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="form-control"value="Cargar Archivo" >
+      </form>
+    </div>
   </div>
 </div>
 {%endblock%}
